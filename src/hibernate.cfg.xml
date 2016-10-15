@@ -1,0 +1,40 @@
+<!DOCTYPE hibernate-configuration PUBLIC  
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"  
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">  
+
+
+<hibernate-configuration>  
+  
+    <session-factory>
+    <!-- mysql数据库驱动 -->  
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+
+        <!-- mysql数据库名称 -->
+
+        <property name="hibernate.connection.url">jdbc:mysql://119.29.117.182:3306/barrage</property>
+
+        <!-- 数据库的登陆用户名 -->
+
+        <property name="hibernate.connection.username">yuzhiyun</property>
+
+        <!-- 数据库的登陆密码 -->
+
+        <property name="hibernate.connection.password">1234</property>
+
+        <!-- 方言：为每一种数据库提供适配器，方便转换 -->
+
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Hibernate支持自动建表，在开发阶段很方便，可以保证hbm与数据库表结构的自动同步。如何使用呢？很简单，只要在hibernate.cfg.xml里加上如下代码Xml代码<property name="hbm2ddl.auto">update</property>   -->
+
+        <property name="hbm2ddl.auto">update</property>
+        
+        <!-- org.hibernate.MappingException: Unknown entity，必须这里引入User.hbm.xml -->
+        <mapping resource="dao/pojo/Message.hbm.xml"/>
+
+    </session-factory> 
+         
+  
+</hibernate-configuration> 

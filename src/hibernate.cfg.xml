@@ -11,7 +11,7 @@
 
         <!-- mysql数据库名称 -->
 
-        <property name="hibernate.connection.url">jdbc:mysql://119.29.117.182:3306/barrage</property>
+        <property name="hibernate.connection.url">jdbc:mysql://123.207.240.183:3306/barrage</property>
 
         <!-- 数据库的登陆用户名 -->
 

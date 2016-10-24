@@ -17,6 +17,8 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.List;
 
 /**
@@ -38,8 +40,8 @@ public class MsgServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        super.doGet(req, resp);
 
-        req.setCharacterEncoding("UTF-8");
-        resp.setCharacterEncoding("UTF-8");
+//        req.setCharacterEncoding("UTF-8");
+//        resp.setCharacterEncoding("UTF-8");
         System.out.print("访问MsgServlet成功" + req.getCharacterEncoding() + " " + resp.getCharacterEncoding());
 
         String temp = req.getServletPath().substring(1);
@@ -91,7 +93,7 @@ public class MsgServlet extends HttpServlet {
             System.out.println(((Message) object).getmMsgContent());
         }
         try {
-            resp.getWriter().print(jsonArray.toString());
+            resp.getWriter().print(URLEncoder.encode(jsonArray.toString(),"utf-8"));
         } catch (IOException e) {
             e.printStackTrace();
         }
